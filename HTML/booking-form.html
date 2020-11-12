@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <h1 class="title">Fill out the form below</h1>
+    <form action="">
+        <label for="firstName">Name:</label>
+        <input type="text" name="firstName" id="firstName" required>
+        <label for="lastName">Last name:</label>
+        <input type="text" name="lastName" id="lastName" required>
+        <label for="email">E-mail:</label>
+        <input type="email" name="email" id="email" required>
+        <label for="phone">Phone number:</label>
+        <input type="tel" name="phone" id="phone" pattern="[0-9]{9}" required>
+        <label for="date">Date:</label>
+        <select name="date" id="date">
+            <option value="24/10/2020 14:00">24/10/2020 14:00</option>
+            <option value="24/10/2020 15:00">24/10/2020 15:00</option>
+            <option value="24/10/2020 16:00">24/10/2020 16:00</option>
+            <option value="24/10/2020 17:00">24/10/2020 17:00</option>
+            <option value="24/10/2020 18:00">24/10/2020 18:00</option>
+            <option value="24/10/2020 19:00">24/10/2020 19:00</option>
+            <option value="24/10/2020 20:00">24/10/2020 20:00</option>
+            <option value="25/10/2020 14:00">25/10/2020 14:00</option>
+        </select>
+        <input type="submit" value="Book" />
+    </form>
+    </div>
+</body>
+</html>
