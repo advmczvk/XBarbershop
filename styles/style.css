@@ -16,7 +16,7 @@ html {
 body {
     font-family: "Montserrat", sans-serif;
     padding-top: 10vh;
-    /* min-height: 90vh; */
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -183,6 +183,8 @@ footer {
     padding-bottom: 25px;
     height: 70px;
     z-index: 1;
+    position: relative;
+    bottom: 0;
 }
 
 .credits {
@@ -230,19 +232,29 @@ table th {
     color: white;
     font-weight: 600;
 }
-
+.details-button a,
 .edit-button a,
 .delete-button a {
     text-decoration: none;
     color: white;
 }
-
+.details-button,
 .edit-button,
 .delete-button {
     border: none;
     text-decoration: none;
     border-radius: 15px;
     padding: 0.3rem 1rem;
+}
+
+.details-button {
+    background-color: rgb(81, 172, 141);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.details-button:hover {
+    background-color: rgb(69, 136, 114);
+    transition: background-color 0.2s ease-in-out;
 }
 
 .edit-button {
@@ -271,6 +283,7 @@ table th {
     justify-content: center;
     text-align: justify;
     width: 50%;
+    height: 100%;
     margin: 2rem auto;
 }
 
@@ -297,6 +310,44 @@ table th {
     transition: background-color 0.2s ease-in-out;
 }
 
-.booking button a {
+.main-button a {
     color: white;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-container form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.input label {
+    text-align: left;
+    margin: 0.5rem 0 0.2rem 0;
+}
+
+.input input,
+select {
+    width: 60%;
+}
+
+.main-container .logo {
+    margin: 2.5rem auto;
+}
+
+.main-container .logo img {
+    height: 3.5rem;
 }
