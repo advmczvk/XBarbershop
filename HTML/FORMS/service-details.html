@@ -18,19 +18,19 @@
         <h1 class="title">Details</h1>
         <form action="">
             <div class="input">
-                <label for="name">Name:</label>
-                <input type="text" name="name" id="name" value="Jan Król" disabled>
-                <span id="errorName" class="errors-text"></span>
+                <label for="service">Service:</label>
+                <input type="text" name="service" id="service" value="Haircut" disabled>
+                <span id="errorService" class="errors-text"></span>
             </div>
             <div class="input">
-                <label for="email">E-mail:</label>
-                <input type="email" name="email" id="email" value="jkrol@gmail.com" disabled>
-                <span id="errorEmail" class="errors-text"></span>
+                <label for="time">Time:</label>
+                <input type="text" name="time" id="time" value="1h" disabled>
+                <span id="errorTime" class="errors-text"></span>
             </div>
             <div class="input">
-                <label for="phone">Phone number:</label>
-                <input type="tel" name="phone" id="phone" pattern="[0-9]{9}" value="+48 502 939 325" disabled>
-                <span id="errorPhone" class="errors-text"></span>
+                <label for="price">Price:</label>
+                <input type="text" name="price" id="price" value="90 PLN" disabled>
+                <span id="errorPrice" class="errors-text"></span>
             </div>
             <div class="buttons">
                 <input type="button" class="secondary-button" value="Back" onclick="history.go(-1)" formnovalidate>
@@ -38,37 +38,44 @@
             </div>
         </form>
         <div class="main-container">
-            <h1 class="title">Clients appointments</h1>
+            <h1 class="title">Services appointments</h1>
             <table>
                 <thead>
-                    <th>Service</th>
-                    <th>Price</th>
-                    <th>Date</th>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>Phone number</th>
+                    <th>Data</th>
                     <th>Actions</th>
                 </thead>
                 <tr>
-                    <td>Haircut</td>
-                    <td>90 PLN</td>
+                    <td>Jan Król</td>
+                    <td>jkrol@gmail.com</td>
+                    <td>+48 502 939 325</td>
                     <td>29/10/2020 14:00</td>
                     <td>
+                        <button class="details-button"><a href="../FORMS/client-details.html">Details</a></button>
                         <button class="edit-button"><a href="../FORMS/edit-client.html">Edit</a></button>
                         <button class="delete-button"><a href="#">Delete</a></button>
                     </td>
                 </tr>
                 <tr>
-                    <td>Haircut</td>
-                    <td>90 PLN</td>
+                    <td>Jan Król</td>
+                    <td>jkrol@gmail.com</td>
+                    <td>+48 502 939 325</td>
                     <td>29/10/2020 14:00</td>
                     <td>
+                        <button class="details-button"><a href="../FORMS/client-details.html">Details</a></button>
                         <button class="edit-button"><a href="../FORMS/edit-client.html">Edit</a></button>
                         <button class="delete-button"><a href="#">Delete</a></button>
                     </td>
                 </tr>
                 <tr>
-                    <td>Haircut</td>
-                    <td>90 PLN</td>
+                    <td>Jan Król</td>
+                    <td>jkrol@gmail.com</td>
+                    <td>+48 502 939 325</td>
                     <td>29/10/2020 14:00</td>
                     <td>
+                        <button class="details-button"><a href="../FORMS/client-details.html">Details</a></button>
                         <button class="edit-button"><a href="../FORMS/edit-client.html">Edit</a></button>
                         <button class="delete-button"><a href="#">Delete</a></button>
                     </td>

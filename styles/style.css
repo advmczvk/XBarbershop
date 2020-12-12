@@ -44,10 +44,11 @@ header {
     margin: 0 5% 0 5%;
 }
 
-.logo a{
+.logo a {
     display: inline-block;
 }
-.logo .x-logo, .x-logo {
+.logo .x-logo,
+.x-logo {
     color: var(--primary-color);
     display: inline-block;
 }
@@ -218,6 +219,7 @@ footer {
 
 table {
     border-collapse: collapse;
+    width: 100%;
 }
 
 .main-container {
@@ -236,12 +238,11 @@ table {
     padding-bottom: 1rem;
 }
 
-table,
 table th,
 table td {
     padding: 0.5rem;
     margin: 0;
-    border: 1px solid var(--secondary-color-light);
+    border: 1px solid lightgray;
     color: var(--secondary-color);
 }
 
@@ -332,6 +333,27 @@ table th {
     color: white;
 }
 
+.secondary-button {
+    border: none;
+    text-decoration: none;
+    width: auto;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: var(--secondary-color-light);
+    color: white;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.secondary-button:hover {
+    background-color: var(--secondary-color);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.secondary-button a {
+    color: white;
+}
+
 .main-container {
     display: flex;
     justify-content: center;
@@ -370,8 +392,7 @@ select {
     height: 3.5rem;
 }
 
-@media (max-width: 768px){
-
+@media (max-width: 768px) {
     .navigation {
         width: 100vw;
         height: 100vh;
@@ -395,6 +416,10 @@ select {
         align-items: center;
     }
 
+    .navigation ul li {
+        font-size: 1.5rem;
+    }
+
     .hamburger {
         padding: 10px;
         display: inline-block;
@@ -406,18 +431,19 @@ select {
         right: 2rem;
         z-index: 3;
     }
-      
-    .hamburger, .navigation {
-        transition: transform .3s .1s ease-in-out;
+
+    .hamburger,
+    .navigation {
+        transition: transform 0.3s 0.1s ease-in-out;
     }
-    
+
     .hamburger__box {
         width: 35px;
         height: 24px;
         display: inline-block;
         position: relative;
     }
-    
+
     .hamburger__inner {
         width: 100%;
         height: 3px;
@@ -426,66 +452,63 @@ select {
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        transition: background-color .1s .2s ease-in-out;
+        transition: background-color 0.1s 0.2s ease-in-out;
     }
-    
+
     .hamburger__inner::before,
     .hamburger__inner::after {
         width: 100%;
         height: 3px;
         background-color: var(--secondary-color);
         position: absolute;
-        content: '';
+        content: "";
         left: 0;
-        transition: transform .2s .2s ease-in-out;
-    } 
-    
+        transition: transform 0.2s 0.2s ease-in-out;
+    }
+
     .hamburger__inner::before {
-    top: -10px;
+        top: -10px;
     }
-    
+
     .hamburger__inner::after {
-    top: 10px;
+        top: 10px;
     }
-    
+
     .hamburger--active .hamburger__inner {
-    background-color: transparent;
+        background-color: transparent;
     }
-    
+
     .hamburger--active .hamburger__inner:before {
-    transform: translateY(10px) rotate(45deg);
+        transform: translateY(10px) rotate(45deg);
     }
-    
+
     .hamburger--active .hamburger__inner:after {
-    transform: translateY(-10px) rotate(-45deg);
+        transform: translateY(-10px) rotate(-45deg);
     }
 
     .hero {
-        /* Sizing */
         width: 100vw;
-        height: 100vh;
-
-        /* Flexbox stuff */
+        height: 90vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        /* Text styles */
         text-align: center;
-
-        /* Background styles */
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: scroll;
-        background-image: url('../img/barber_hero.jpeg');
+        background-image: url("../img/barber_hero.jpeg");
     }
 
     .overlay {
-        background-color: rgba(255, 255, 255, 0.726);
+        background-color: #5567729c;
         width: 100vw;
         height: 100vh;
+    }
+
+    .wave-hero {
+        position: absolute;
     }
 
     .hero-wrapper {
@@ -495,11 +518,86 @@ select {
         align-items: center;
     }
 
-    .hero-wrapper .text, .hero-wrapper h1 {
+    .hero-wrapper .text,
+    .hero-wrapper h1 {
         margin: auto;
+        color: white;
     }
 
     .hero-wrapper .img-container {
         display: none;
     }
+
+    .footer-info .contact {
+        font-size: 0.6rem;
+        margin-bottom: 1rem;
+    }
+    .person-wrapper .person {
+        display: flex;
+        flex-direction: column;
+    }
+    .person .img-container {
+        width: 75px;
+        height: 75px;
+    }
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    tr:nth-of-type(odd) {
+        background: var(--secondary-color-light);
+    }
+    tr:nth-of-type(odd) td {
+        color: white;
+    }
+
+    /*
+	Label the data
+	*/
+    /* td:nth-of-type(1):before { content: "Name"; }
+	td:nth-of-type(2):before { content: "Phone"; }
+	td:nth-of-type(3):before { content: "Service"; }
+	td:nth-of-type(4):before { content: ""; }
+	td:nth-of-type(5):before { content: "Wars of Trek?"; }
+	td:nth-of-type(6):before { content: "Secret Alias"; }
+	td:nth-of-type(7):before { content: "Date of Birth"; }
+	td:nth-of-type(8):before { content: "Dream Vacation City"; }
+	td:nth-of-type(9):before { content: "GPA"; }
+	td:nth-of-type(10):before { content: "Arbitrary Data"; } */
 }

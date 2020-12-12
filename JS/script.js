@@ -7,3 +7,7 @@ const handleClick = () => {
 }
 
 hamburger.addEventListener('click', handleClick);
+
+function goBack() {
+  history.go(-1);
+}

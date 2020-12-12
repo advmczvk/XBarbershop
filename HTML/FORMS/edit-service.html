@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit service</title>
+    <link rel="icon" href="../../img/x-thumbnail.png">
     <link rel="stylesheet" href="../../styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -19,16 +20,22 @@
             <div class="input">
                 <label for="service">Service:</label>
                 <input type="text" name="service" id="service" value="Haircut" required>
+                <span id="errorService" class="errors-text"></span>
             </div>
             <div class="input">
                 <label for="time">Time:</label>
                 <input type="text" name="time" id="time" value="1h" required>
+                <span id="errorTime" class="errors-text"></span>
             </div>
             <div class="input">
                 <label for="price">Price:</label>
                 <input type="text" name="price" id="price" value="90 PLN" required>
+                <span id="errorPrice" class="errors-text"></span>
             </div>
-            <input class="main-button" type="submit" value="Submit" />
+            <div class="buttons">
+                <input type="button" class="secondary-button" value="Back" onclick="history.go(-1)" formnovalidate>
+                <input class="main-button" type="submit" value="Submit" />
+            </div>
         </form>
     </div>
 </body>

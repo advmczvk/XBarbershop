@@ -9,29 +9,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    
     <div class="main-container">
         <div class="logo">
             <a href="../index.html">
                 <h3 class="x-logo">X</h3><h3>Barbershop</h3>
             </a>
-        </div>
-        <h1 class="title">Fill out the form below</h1>
+         </div>
+        <h1 class="title">Add service</h1>
         <form action="">
             <div class="input">
-                <label for="name">Name:</label>
-                <input type="text" name="name" id="name" required>
-                <span id="errorName" class="errors-text"></span>
+                <label for="service">Service:</label>
+                <input type="text" name="service" id="service" required>
+                <span id="errorService" class="errors-text"></span>
             </div>
             <div class="input">
-                <label for="email">E-mail:</label>
-                <input type="email" name="email" id="email" required>
-                <span id="errorEmail" class="errors-text"></span>
+                <label for="time">Time:</label>
+                <input type="text" name="time" id="time" required>
+                <span id="errorTime" class="errors-text"></span>
             </div>
             <div class="input">
-                <label for="phone">Phone number:</label>
-                <input type="tel" name="phone" id="phone" pattern="[0-9]{9}" required>
-                <span id="errorPhone" class="errors-text"></span>
+                <label for="price">Price:</label>
+                <input type="text" name="price" id="price" required>
+                <span id="errorService" class="errors-text"></span>
             </div>
             <div class="buttons">
                 <input type="button" class="secondary-button" value="Back" onclick="history.go(-1)" formnovalidate>
