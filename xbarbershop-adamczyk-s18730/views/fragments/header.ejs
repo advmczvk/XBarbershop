@@ -1,0 +1,22 @@
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <a href="/">
+                <h3 class="x-logo">X</h3><h3>Barbershop</h3>
+            </a>
+         </div>
+         <button class="hamburger">
+            <span class="hamburger__box">
+              <span class="hamburger__inner"></span>
+            </span>
+          </button>
+         <nav class="navigation">
+             <ul class="nav-links"> 
+                 <li><a class="nav-link <%= navLocation == 'main' ? 'active' : ''%>" href="./">Home</a></li>
+                 <li><a class="nav-link <%= navLocation == 'appointments' ? 'active' : ''%>" href="/appointments">Appointments</a></li>
+                 <li><a class="nav-link <%= navLocation == 'services' ? 'active' : ''%>" href="/services">Services</a></li>
+                 <li><a class="nav-link <%= navLocation == 'clients' ? 'active' : ''%>" href="/clients">Clients</a></li>
+             </ul>
+         </nav>
+    </div>
+</header>

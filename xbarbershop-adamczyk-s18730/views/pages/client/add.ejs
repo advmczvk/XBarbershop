@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new client</title>
+    <link rel="icon" href="../../img/x-thumbnail.png">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script type="application/javascript" src="../../JS/validateClientForm.js"></script>
+    <script type="application/javascript" src="../../JS/validationCommon.js"></script>
+</head>
+<body>
+    
+    <div class="main-container">
+        <div class="logo">
+            <a href="../index.html">
+                <h3 class="x-logo">X</h3><h3>Barbershop</h3>
+            </a>
+        </div>
+        <h1 class="title">Fill out the form below</h1>
+        <form action="" novalidate onsubmit="return validateForm();">
+            <div class="input">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required placeholder="Name Surname">
+                <span id="errorName" class="errors-text"></span>
+            </div>
+            <div class="input">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" required placeholder="example@gmail.com">
+                <span id="errorEmail" class="errors-text"></span>
+            </div>
+            <div class="input">
+                <label for="phone">Phone number:</label>
+                <input type="tel" name="phone" id="phone" pattern="[0-9]{9}" required>
+                <span id="errorPhone" class="errors-text"></span>
+            </div>
+            <div class="buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <input type="button" class="secondary-button" value="Back" onclick="history.go(-1)" formnovalidate>
+                <input class="main-button" type="submit" value="Submit" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

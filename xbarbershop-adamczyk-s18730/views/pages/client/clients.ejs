@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients</title>
+    <link rel="icon" href="../../img/x-thumbnail.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <%- include('../../fragments/header.ejs') %>
+    <main>
+        <div class="main-container">
+            <h1 class="title">Clients</h1>
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Last name</th>
+                    <th>E-mail</th>
+                    <th>Phone number</th>
+                    <th>Actions</th>
+                </thead>
+                <tr>
+                    <td>Jan</td>
+                    <td>Król</td>
+                    <td>jkrol@gmail.com</td>
+                    <td>+48 502 939 325</td>
+                    <td>
+                        <button class="edit-button"><a href="./edit">Edit</a></button>
+                        <button class="delete-button"><a href="#">Delete</a></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jan</td>
+                    <td>Król</td>
+                    <td>jkrol@gmail.com</td>
+                    <td>+48 502 939 325</td>
+                    <td>
+                        <button class="edit-button"><a href="./edit">Edit</a></button>
+                        <button class="delete-button"><a href="#">Delete</a></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jan</td>
+                    <td>Król</td>
+                    <td>jkrol@gmail.com</td>
+                    <td>+48 502 939 325</td>
+                    <td>
+                        <button class="edit-button"><a href="./edit">Edit</a></button>
+                        <button class="delete-button"><a href="#">Delete</a></button>
+                    </td>
+                </tr>
+            </table>
+            <button class="main-button"><a href="./add">Add new client</a></button>
+        </div>
+    </main>
+    <div class="wave-footer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#273036" stroke="transparent" fill-opacity="1" d="M0,256L60,240C120,224,240,192,360,197.3C480,203,600,245,720,250.7C840,256,960,224,1080,218.7C1200,213,1320,235,1380,245.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
+    </div>
+    <%- include('../../fragments/footer.ejs') %>
+    <script src="../JS/script.js"></script>
+</body>
+</html>

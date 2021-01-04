@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="icon" href="../../img/x-thumbnail.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <%- include('../../fragments/header.ejs') %>
+    <main>
+        <div class="main-container">
+            <h1 class="title">
+                Our highest quality services!
+            </h1>
+            <table>
+                <thead>
+                    <th>Service</th>
+                    <th>Time</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </thead>
+                <tr>
+                    <td>Haircut</td>
+                    <td>1h</td>
+                    <td>90 PLN</td>
+                    <td>
+                        <button class="details-button"><a href="./FORMS/service-details.html">Details</a></button>
+                        <button class="edit-button"><a href="./FORMS/edit-service.html">Edit</a></button>
+                        <button class="delete-button"><a href="#">Delete</a></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Trim</td>
+                    <td>30 min</td>
+                    <td>50 PLN</td>
+                    <td>
+                        <button class="details-button"><a href="./FORMS/service-details.html">Details</a></button>
+                        <button class="edit-button"><a href="./FORMS/edit-service.html">Edit</a></button>
+                        <button class="delete-button"><a href="#">Delete</a></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Beard trim</td>
+                    <td>30 min</td>
+                    <td>50 PLN</td>
+                    <td>
+                        <button class="details-button"><a href="./FORMS/service-details.html">Details</a></button>
+                        <button class="edit-button"><a href="./FORMS/edit-service.html">Edit</a></button>
+                        <button class="delete-button"><a href="#">Delete</a></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Combo</td>
+                    <td>1.5h</td>
+                    <td>120 PLN</td>
+                    <td>
+                        <button class="details-button"><a href="./FORMS/service-details.html">Details</a></button>
+                        <button class="edit-button"><a href="./FORMS/edit-service.html">Edit</a></button>
+                        <button class="delete-button"><a href="#">Delete</a></button>
+                    </td>
+                </tr>
+            </table>
+            <button class="main-button"><a href="FORMS/booking-form.html">Book now!</a></button>
+            <button class="details-button"><a href="FORMS/add-service.html">Add service</a></button>
+        </div>
+    </main>
+    <div class="wave-footer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#273036" stroke="transparent" fill-opacity="1" d="M0,256L60,240C120,224,240,192,360,197.3C480,203,600,245,720,250.7C840,256,960,224,1080,218.7C1200,213,1320,235,1380,245.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
+    </div>
+    <%- include('../../fragments/footer.ejs') %>
+    <script src="../JS/script.js"></script>
+</body>
+</html>

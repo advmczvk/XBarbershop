@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new client</title>
+    <link rel="icon" href="../../img/x-thumbnail.png">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script type="application/javascript" src="../../JS/validateServiceForm.js"></script>
+    <script type="application/javascript" src="../../JS/validationCommon.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="logo">
+            <a href="../index.html">
+                <h3 class="x-logo">X</h3><h3>Barbershop</h3>
+            </a>
+         </div>
+        <h1 class="title">Add service</h1>
+        <form action="" novalidate onsubmit="return validateForm();">
+            <div class="input">
+                <label for="service">Service:</label>
+                <input type="text" name="service" id="service" required>
+                <span id="errorService" class="errors-text"></span>
+            </div>
+            <div class="input">
+                <label for="time">Time:</label>
+                <input type="number" name="time" id="time" required placeholder="minutes"> 
+                <span id="errorTime" class="errors-text"></span>
+            </div>
+            <div class="input">
+                <label for="price">Price:</label>
+                <input type="number" name="price" id="price" required placeholder="PLN">
+                <span id="errorPrice" class="errors-text"></span>
+            </div>
+            <div class="buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <input type="button" class="secondary-button" value="Back" onclick="history.go(-1)" formnovalidate>
+                <input class="main-button" type="submit" value="Submit" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>
