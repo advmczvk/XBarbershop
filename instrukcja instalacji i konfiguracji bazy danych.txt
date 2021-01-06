@@ -1,0 +1,1 @@
+Najpierw uruchomic cmd, następnie uruchomić aplikacje docker w folderze docker, następnie wpisać w cmd polecenie docker-compose up i poczekać aż baza danych się uruchomi

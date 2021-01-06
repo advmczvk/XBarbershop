@@ -22,49 +22,23 @@
                     <th>Price</th>
                     <th>Actions</th>
                 </thead>
-                <tr>
-                    <td>Haircut</td>
-                    <td>1h</td>
-                    <td>90 PLN</td>
-                    <td>
-                        <button class="details-button"><a href="./FORMS/service-details.html">Details</a></button>
-                        <button class="edit-button"><a href="./FORMS/edit-service.html">Edit</a></button>
-                        <button class="delete-button"><a href="#">Delete</a></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Trim</td>
-                    <td>30 min</td>
-                    <td>50 PLN</td>
-                    <td>
-                        <button class="details-button"><a href="./FORMS/service-details.html">Details</a></button>
-                        <button class="edit-button"><a href="./FORMS/edit-service.html">Edit</a></button>
-                        <button class="delete-button"><a href="#">Delete</a></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Beard trim</td>
-                    <td>30 min</td>
-                    <td>50 PLN</td>
-                    <td>
-                        <button class="details-button"><a href="./FORMS/service-details.html">Details</a></button>
-                        <button class="edit-button"><a href="./FORMS/edit-service.html">Edit</a></button>
-                        <button class="delete-button"><a href="#">Delete</a></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Combo</td>
-                    <td>1.5h</td>
-                    <td>120 PLN</td>
-                    <td>
-                        <button class="details-button"><a href="./FORMS/service-details.html">Details</a></button>
-                        <button class="edit-button"><a href="./FORMS/edit-service.html">Edit</a></button>
-                        <button class="delete-button"><a href="#">Delete</a></button>
-                    </td>
-                </tr>
+                <tbody>
+                    <% for (let ser of services) { %>
+                    <tr>
+                        <td><%= ser.name %></td>
+                        <td><%= ser.time %> min</td>
+                        <td><%= ser.price %> PLN</td>
+                        <td>
+                            <button class="details-button"><a href="./services/details/<%= ser._id%>">Details</a></button>
+                            <button class="edit-button"><a href="./services/edit/<%= ser._id%>">Edit</a></button>
+                            <button class="delete-button"><a href="./services/delete/<%= ser._id%>">Delete</a></button>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
             </table>
-            <button class="main-button"><a href="FORMS/booking-form.html">Book now!</a></button>
-            <button class="details-button"><a href="FORMS/add-service.html">Add service</a></button>
+            <button class="main-button"><a href="./appointments/add">Book now!</a></button>
+            <button class="details-button"><a href="./services/add">Add service</a></button>
         </div>
     </main>
     <div class="wave-footer">

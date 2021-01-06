@@ -28,7 +28,7 @@ exports.createClient = (newClientData) => {
     });
 };
 
-exports.updateEmployee = (clientId, clientData) => {
+exports.updateClient = (clientId, clientData) => {
     const name = clientData.name;
     const email = clientData.email;
     const phone = clientData.phone;

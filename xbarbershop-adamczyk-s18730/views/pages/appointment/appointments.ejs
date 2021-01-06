@@ -21,45 +21,27 @@
                     <th>Data</th>
                     <th>Actions</th>
                 </thead>
-                <tr>
-                    <td>Jan Król</td>
-                    <td>+48 502 939 325</td>
-                    <td>Haircut</td>
-                    <td>29/10/2020 14:00</td>
-                    <td>
-                        <button class="details-button"><a href="./FORMS/client-details.html">Details</a></button>
-                        <button class="edit-button"><a href="./FORMS/edit-client.html">Edit</a></button>
-                        <button class="delete-button"><a href="#">Delete</a></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jan Król</td>
-                    <td>+48 502 939 325</td>
-                    <td>Haircut</td>
-                    <td>29/10/2020 14:00</td>
-                    <td>
-                        <button class="details-button"><a href="./FORMS/client-details.html">Details</a></button>
-                        <button class="edit-button"><a href="./FORMS/edit-client.html">Edit</a></button>
-                        <button class="delete-button"><a href="#">Delete</a></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jan Król</td>
-                    <td>+48 502 939 325</td>
-                    <td>Haircut</td>
-                    <td>29/10/2020 14:00</td>
-                    <td>
-                        <button class="details-button"><a href="./FORMS/client-details.html">Details</a></button>
-                        <button class="edit-button"><a href="./FORMS/edit-client.html">Edit</a></button>
-                        <button class="delete-button"><a href="#">Delete</a></button>
-                    </td>
-                </tr>
+                <tbody>
+                    <% for (let app of apps) { %>
+                    <tr>
+                        <td><%= app.client.name %></td>
+                        <td><%= app.client.phone %></td>
+                        <td><%= app.service.name %></td>
+                        <td><%= app.date instanceof Date ? app.date.toISOString().split('T')[0]:app.date %></td>
+                        <td>
+                            <button class="details-button"><a href="./clients/details/<%= app.client._id%>">Details</a></button>
+                            <button class="edit-button"><a href="./clients/edit/<%= app.client._id%>">Edit</a></button>
+                            <button class="delete-button"><a href="./clients/delete/<%= app._id%>">Delete</a></button>
+                        </td>
+                    </tr>
+                </tbody>
+                <% } %>
             </table>
         </div>
         <div class="booking">
             <h2>Book new appointment</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quia officiis vitae voluptatum maiores atque dolorum eveniet, quod laboriosam animi, molestiae ullam eaque maxime tempora nobis! Recusandae pariatur eum molestiae.</p>
-            <button class="main-button"><a href="FORMS/booking-form.html">Book now!</a></button>
+            <button class="main-button"><a href="./appointments/add">Book now!</a></button>
         </div>
     </main>
     <div class="wave-footer">

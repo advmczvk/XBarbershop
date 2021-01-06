@@ -17,43 +17,26 @@
             <table>
                 <thead>
                     <th>Name</th>
-                    <th>Last name</th>
                     <th>E-mail</th>
                     <th>Phone number</th>
                     <th>Actions</th>
                 </thead>
-                <tr>
-                    <td>Jan</td>
-                    <td>Król</td>
-                    <td>jkrol@gmail.com</td>
-                    <td>+48 502 939 325</td>
-                    <td>
-                        <button class="edit-button"><a href="./edit">Edit</a></button>
-                        <button class="delete-button"><a href="#">Delete</a></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jan</td>
-                    <td>Król</td>
-                    <td>jkrol@gmail.com</td>
-                    <td>+48 502 939 325</td>
-                    <td>
-                        <button class="edit-button"><a href="./edit">Edit</a></button>
-                        <button class="delete-button"><a href="#">Delete</a></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jan</td>
-                    <td>Król</td>
-                    <td>jkrol@gmail.com</td>
-                    <td>+48 502 939 325</td>
-                    <td>
-                        <button class="edit-button"><a href="./edit">Edit</a></button>
-                        <button class="delete-button"><a href="#">Delete</a></button>
-                    </td>
-                </tr>
+                    <% for (let client of clients) { %>
+                    <tbody>
+                        <tr>
+                            <td><%= client.name %></td>
+                            <td><%= client.email %></td>
+                            <td><%= client.phone %></td>
+                            <td>
+                                <button class="details-button"><a href="./clients/details/<%= client._id%>">Details</a></button>
+                                <button class="edit-button"><a href="./clients/edit/<%= client._id%>">Edit</a></button>
+                                <button class="delete-button"><a href="./clients/delete/<%= client._id%>">Delete</a></button>
+                            </td>
+                    </tr>
+                    <% } %>
+                </tbody>
             </table>
-            <button class="main-button"><a href="./add">Add new client</a></button>
+            <button class="main-button"><a href="./clients/add">Add new client</a></button>
         </div>
     </main>
     <div class="wave-footer">

@@ -1,0 +1,1 @@
+Uruchomić cmd, następnie przejść do folderu xbarbershop-adamczyk-s18730, w przypadku braku folder node_modules należy je zainstalować, następnie uruchamiamy aplikacje poleceniem npm start.

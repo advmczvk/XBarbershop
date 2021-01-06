@@ -222,6 +222,10 @@ table {
     width: 100%;
 }
 
+.form-table {
+    margin-bottom: 5rem;
+}
+
 .main-container {
     display: flex;
     flex-direction: column;

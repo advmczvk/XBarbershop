@@ -1,0 +1,2 @@
+debug: 
+<% console.dir(apps, { depth: 4 }); %>

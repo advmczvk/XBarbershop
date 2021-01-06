@@ -1,0 +1,1 @@
+Korzystałem z języka javascript, frameworka NodeJS, z ExpressJS, który służy do budowania aplikacji webowych. Poza tym robiłem projekt według podejścia 2, korzystając z sequelize.

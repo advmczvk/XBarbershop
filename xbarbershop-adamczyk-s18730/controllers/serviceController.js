@@ -1,5 +1,13 @@
+const ServiceRepository = require('../repository/sequelize/ServiceRepository');
+
 exports.showServices = (req, res, next) => {
-    res.render('pages/service/services', { navLocation: 'services'});
+    ServiceRepository.getServices()
+        .then(services => {
+            res.render('pages/service/services', {
+                services: services,
+                navLocation: 'services'
+            });
+        });
 }
 
 exports.showAddServiceForm = (req, res, next) => {

@@ -1,13 +1,13 @@
 const sequelize = require('./sequelize');
 
-const Appointment = require('../../model/sequelize/appointment');
 const Client = require('../../model/sequelize/client');
 const Service = require('../../model/sequelize/service');
+const Appointment = require('../../model/sequelize/appointment');
 
 module.exports = () => {
-    Client.hasMany(Appointment, {as: 'appointments', foreignKey: {name: 'client_id, allowNull: false'}, constraints: true, onDelete: 'CASCADE'});
+    Client.hasMany(Appointment, {as: 'appointments', foreignKey: {name: 'client_id', allowNull: false}, constraints: true, onDelete: 'CASCADE'});
     Appointment.belongsTo(Client, {as: 'client', foreignKey: {name: 'client_id', allowNull: false}});
-    Service.hasMany(Appointment, {as: 'appointments', foreignKey: {name: 'service_id, allowNull: false'}, constraints: true, onDelete: 'CASCADE'});
+    Service.hasMany(Appointment, {as: 'appointments', foreignKey: {name: 'service_id', allowNull: false}, constraints: true, onDelete: 'CASCADE'});
     Appointment.belongsTo(Service, {as: 'service', foreignKey: {name: 'service_id', allowNull: false}});
 
     let allClients, allServices;
