@@ -9,6 +9,15 @@ const clientRouter = require('./routes/clientRoute');
 const appointmentRouter = require('./routes/appointmentRoute');
 const serviceRouter = require('./routes/serviceRoute');
 
+const sequelizeInit = require('./config/sequelize/init');
+sequelizeInit()
+  .catch(err => {
+      console.log(err);
+  });
+
+const clientApiRouter = require('./routes/api/ClientApiRoute');
+const serviceApiRouter = require('./routes/api/ServiceApiRoute');
+const appApiRouter = require('./routes/api/AppointmentApiRoute');
 
 var app = express();
 
@@ -26,6 +35,9 @@ app.use('/', indexRouter);
 app.use('/clients', clientRouter);
 app.use('/appointments', appointmentRouter);
 app.use('/services', serviceRouter);
+app.use('/api/clients', clientApiRouter);
+app.use('/api/services', serviceApiRouter);
+app.use('/api/appointments', appApiRouter);
 
 
 // catch 404 and forward to error handler
