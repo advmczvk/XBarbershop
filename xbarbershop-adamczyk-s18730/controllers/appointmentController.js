@@ -16,7 +16,6 @@ exports.showAppointments = (req, res, next) => {
         .then(services => {
             allServices = services;
             res.render('pages/appointment/appointments', {
-                bao: 'maslo',
                 apps: allApps,
                 allClients: allClients,
                 allServices: allServices,
@@ -26,5 +25,100 @@ exports.showAppointments = (req, res, next) => {
 }
 
 exports.showAddAppointmentForm = (req, res, next) => {
-    res.render('pages/appointment/add', {});
+    let allClients, allServices;
+    ClientRepository.getClients()
+        .then(client => {
+            allClients = client;
+            return ServiceRepository.getServices();
+        })
+        .then(services => {
+            allServices = services;
+            res.render('pages/appointment/form', {
+                appointment: {},
+                formMode: 'createNew',
+                allClients: allClients,
+                allServices: allServices,
+                pageTitle: 'Add appointment',
+                formAction: '/appointments/add',
+                navLocation: 'appointments'
+            });
+        });
 }
+
+exports.showEditAppointmentForm = (req, res, next) => {
+    const appID = req.params.appID;
+    let allClients, allServices;
+    ClientRepository.getClients()
+        .then(clients => {
+            allClients = clients;
+            return ServiceRepository.getServices();
+        })
+        .then(services => {
+            allServices = services;
+            return AppointmentRepository.getAppointmentById(appID)
+        })
+        .then(appointment => {
+            res.render('pages/appointment/form', {
+                appointment: appointment,
+                allClients: allClients,
+                allServices: allServices,
+                formMode: 'edit',
+                pageTitle: 'Edit appointment',
+                formAction: '/appointments/edit',
+                navLocation: 'appointments',
+                validationErrors: ''
+            });
+        });
+}
+
+exports.showAppointmentDetails = (req, res, next) => {
+    const appID = req.params.appID;
+    let allClients, allServices;
+    ClientRepository.getClients()
+        .then(clients => {
+            allClients = clients;
+            return ServiceRepository.getServices();
+        })
+        .then(services => {
+            allServices = services;
+            return AppointmentRepository.getAppointmentById(appID)
+        })
+        .then(appointment => {
+            res.render('pages/appointment/form', {
+                appointment: appointment,
+                allClients: allClients,
+                allServices: allServices,
+                formMode: 'details',
+                pageTitle: 'Appointment details',
+                formAction: '',
+                navLocation: 'appointments',
+                validationErrors: ''
+            });
+
+        });
+}
+
+exports.addAppointment = (req, res, next) => {
+    const appointmentData = { ...req.body };
+    AppointmentRepository.createAppointment(appointmentData)
+        .then(result => {
+            res.redirect('/appointments');
+        });
+};
+
+exports.updateAppointment = (req, res, next) => {
+    const appointmentId = req.body._id;
+    const appointmentData = { ...req.body };
+    AppointmentRepository.updateAppointment(appointmentId, appointmentData)
+        .then(result => {
+            res.redirect('/appointments');
+        });
+};
+
+exports.deleteAppointment = (req, res, next) => {
+    const appointmentId = req.params.appID;
+    AppointmentRepository.deleteAppointment(appointmentId)
+        .then(() => {
+            res.redirect('/appointments');
+        });
+};

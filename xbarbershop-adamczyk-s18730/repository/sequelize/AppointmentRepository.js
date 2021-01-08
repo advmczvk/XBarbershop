@@ -51,6 +51,6 @@ exports.deleteAppointment = (appId) => {
     });
 }
 
-exports.deleteManyEmployments = (appointmentIds) => {
+exports.deleteManyAppointments = (appointmentIds) => {
     return Appointment.find({ _id: { [Sequelize.Op.in]: appointmentIds }})
 }

@@ -29,9 +29,9 @@
                         <td><%= app.service.name %></td>
                         <td><%= app.date instanceof Date ? app.date.toISOString().split('T')[0]:app.date %></td>
                         <td>
-                            <button class="details-button"><a href="./clients/details/<%= app.client._id%>">Details</a></button>
-                            <button class="edit-button"><a href="./clients/edit/<%= app.client._id%>">Edit</a></button>
-                            <button class="delete-button"><a href="./clients/delete/<%= app._id%>">Delete</a></button>
+                            <button class="details-button"><a href="./appointments/details/<%= app._id%>">Details</a></button>
+                            <button class="edit-button"><a href="./appointments/edit/<%= app._id%>">Edit</a></button>
+                            <button class="delete-button"><a href="./appointments/delete/<%= app._id%>">Delete</a></button>
                         </td>
                     </tr>
                 </tbody>

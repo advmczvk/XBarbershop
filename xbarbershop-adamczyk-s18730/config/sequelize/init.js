@@ -39,7 +39,7 @@ module.exports = () => {
         if( !services || services.length == 0 ) {
             return Service.bulkCreate([
                 { name: 'Haircut', price: 80, time: 60 },
-                { name: 'Bear', price: 60, time: 45 },
+                { name: 'Beard', price: 60, time: 45 },
                 { name: 'Combo', price: 120, time: 105 },
                 { name: 'Trim', price: 30, time: 30 }
             ])

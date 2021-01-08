@@ -1,54 +1,42 @@
 function validateForm() {
-    const clientInput = {
-        name: document.getElementById('name'),
-        email: document.getElementById('email'),
-        phone: document.getElementById('phone')
+    const appointmentInput = {
+        date: document.getElementById('date'),
+        client_id: document.getElementById('client_id'),
+        service_id: document.getElementById('service_id')
     };
-    const clientError = {
-        errorName: document.getElementById('errorName'),
-        errorEmail: document.getElementById('errorEmail'),
-        errorPhone: document.getElementById('errorPhone')
+    const appointmentError = {
+        errorDate: document.getElementById('errorDate'),
+        errorclient_id: document.getElementById('errorClient_id'),
+        errorservice_id: document.getElementById('errorService_id')
     };
     const errorSummary = document.getElementById('errorsSummary');
     
 
-    resetErrors([clientInput.name, clientInput.email, clientInput.phone], [clientError.errorName, clientError.errorEmail, clientError.errorPhone], errorSummary);
+    resetErrors([appointmentInput.date, appointmentInput.client_id, appointmentInput.service_id], [appointmentError.errorDate, appointmentError.errorclient_id, appointmentError.errorservice_id], errorSummary);
     let valid = true;
 
-    if(!checkRequired(clientInput.name.value)) {
+    if(!checkRequired(appointmentInput.date.value)) {
         valid = false;
-        clientInput.name.classList.add("error-input");
-        clientError.errorName.innerText = "Field is required";
-    } else if(!checkTextLengthRange(clientInput.name.value, 5, 125)) {
+        appointmentInput.date.classList.add("error-input");
+        appointmentError.errordate.innerText = "Field is required";
+    } else if(!checkTextLengthRange(appointmentInput.date, new Date())) {
         valid = false;
-        clientInput.name.classList.add("error-input");
-        clientError.errorName.innerText = "Name must be in range 5-125";
+        appointmentInput.date.classList.add("error-input");
+        appointmentError.errordate.innerText = "Date can't be in the past";
     }
 
-    if(!checkRequired(clientInput.email.value)) {
+    if(!checkRequired(appointmentInput.client_id.value)) {
         valid = false;
-        clientInput.email.classList.add("error-input");
-        clientError.errorEmail.innerText = "Field is required";
-    } else if(!checkEmail(clientInput.email.value)) {
-        valid = false;
-        clientInput.email.classList.add("error-input");
-        clientError.errorEmail.innerText = "E-mail incorrect";
-    } else if(!checkTextLengthRange(clientInput.email.value, 5, 60)) {
-        valid = false;
-        clientInput.email.classList.add("error-input");
-        clientError.errorEmail.innerText = "Email must be in range 5-60";
+        appointmentInput.client_id.classList.add("error-input");
+        appointmentError.errorclient_id.innerText = "Field is required";
     }
 
-    if(!checkRequired(clientInput.phone.value)) {
+    if(!checkRequired(appointmentInput.service_id.value)) {
         valid = false;
-        clientInput.phone.classList.add("error-input");
-        clientError.errorPhone.innerText = "Field is required";
-    } else if(!checkPhone(clientInput.phone.value)) {
-        valid = false;
-        clientInput.phone.classList.add("error-input");
-        clientError.errorPhone.innerText = "Phone number incorrect";
+        appointmentInput.service_id.classList.add("error-input");
+        appointmentError.errorservice_id.innerText = "Field is required";
     }
-
+    
     if(!valid) {
         errorSummary.innerText = "Form contains errors!";
     }

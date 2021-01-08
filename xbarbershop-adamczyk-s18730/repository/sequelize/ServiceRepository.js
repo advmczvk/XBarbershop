@@ -1,6 +1,6 @@
-const Service = require("../../model/sequelize/Service");
-const Appointment = require("../../model/sequelize/Appointment");
-const Client = require("../../model/sequelize/Client");
+const Service = require("../../model/sequelize/service");
+const Appointment = require("../../model/sequelize/appointment");
+const Client = require("../../model/sequelize/client");
 
 exports.getServices = () => {
     return Service.findAll();
@@ -35,7 +35,7 @@ exports.updateService = (serId, serData) => {
     return Service.update(serData, {where: {_id: serId }});
 };
 
-exports.deleteClient = (serId) => {
+exports.deleteService = (serId) => {
     return Service.destroy({
         where: { _id: serId }
     });

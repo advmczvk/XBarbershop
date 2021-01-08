@@ -1,0 +1,10 @@
+Nie udało mi się skończyć niektórych rzeczy. 
+Przez ponad 2 tygodnie walczyłem z błędami (m.in. słowo "client" wykorzystywane w moim projekcie jest słowem zarezerwowanym dla EJS, przez co wyskakiwaly błędy, które nic nie wnosiły do mojej sytuacji).
+W najbliższym możliwym terminie zaprezentuję gotowy projekt, gdyż udało mi się uporać z tym błędem.
+
+Jeśli chodzi o walidację backendową - nie jest ona zrobiona na moment wysłania projektu za co z góry przepraszam.
+Szablony są zrobione na "client" (tu też miałem w.w. błędy, z którymi nie mogłem się uporać). One działają w pełni. Analogicznie wykonam szablony dla pozostałych tabel.
+
+Starałem się robić wszystko zgodnie z poradnikiem na stronie, jednak nie widziałem tam jednej bardzo ważnej instrukcji na temat użycia komendy "npm i mysql2", przez co też miałem dużo błędów.
+
+Proszę o wyrozumiałość.

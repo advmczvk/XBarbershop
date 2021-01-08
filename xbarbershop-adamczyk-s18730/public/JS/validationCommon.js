@@ -53,3 +53,6 @@ function checkDigit(value) {
     }
     return value > 0;
 }
+function checkDate(value, today) {
+    return value >= today
+}

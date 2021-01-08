@@ -33,7 +33,7 @@ exports.showClientDetails = (req, res, next) => {
             pageTitle: 'Client details',
             formAction: '',
             navLocation: 'clients'
-        });
+        }); 
     })
 }
 

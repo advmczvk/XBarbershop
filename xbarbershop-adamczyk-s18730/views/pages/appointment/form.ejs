@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment</title>
+    <link rel="icon" href="../../img/x-thumbnail.png">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script type="application/javascript" src="../../JS/validateappointmentForm.js"></script>
+    <script type="application/javascript" src="../../JS/validationCommon.js"></script>
+</head>
+<body>
+    <%- include('../../fragments/header.ejs') %>
+    <div class="main-container">
+        <h1 class="title"><%= pageTitle %></h1>
+        <form action="<%= formAction %>" method="post" novalidate onsubmit="return validateForm();">
+            <input type="hidden" name="_id" value="<%= appointment._id %>">
+            <div class="input">
+                <label for="date">Date:</label>
+                <input type="text" name="date" id="date" value="<%= appointment.date %>" required placeholder="YYYY-MM-DD" 
+                <%= (formMode == 'details') ? 'disabled' : '' %>/>
+                <span id="errorDate" class="errors-text"></span>
+            </div>
+            <div class="select">
+                <label for="client_id">Client:</label>
+                <select name="client_id" id="client_id" required <%= (formMode == 'details') ? 'disabled' : '' %>>
+                    <option value="" selected>--- Select client ---</option>
+                    <% for (let i = 0; i < allClients.length; i++) { let r_client = allClients[i]; %>
+                        <option value="<%= r_client._id %>"
+                            label="<%= r_client.name %>"
+                            <%=(appointment.client && r_client._id.toString() == appointment.client._id.toString()) ? 'selected' : '' %>
+                            ></option>
+                        <% } %>
+                </select>
+                <span id="errorClient_id" class="errors-text"></span>
+            </div>
+            <div class="input">
+                <label for="service_id">Service:</label>
+                <select name="service_id" id="service_id" required <%= (formMode == 'details') ? 'disabled' : '' %>>
+                    <option value="" selected>--- Select service ---</option>
+                    <% for (let i=0; i<allServices.length; i++) { let service = allServices[i]; %>
+                        <option value="<%= service._id %>"
+                            label="<%= service.name %>"
+                            <%=(appointment.service && service._id.toString() == appointment.service._id.toString()) ? 'selected' : '' %>
+                            ></option>
+                        <% } %>
+                </select>
+                <span id="errorService_id" class="errors-text"></span>
+            </div>
+            <div class="buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <input type="button" class="secondary-button" value="Back" onclick="history.go(-1)" formnovalidate>
+                <% if (formMode == 'details') { %>
+                    <button class="main-button"><a href=" ../edit/<%= appointment._id %>">Edit</a></button>
+                <% } else { %>
+                    <input class="main-button" type="submit" value="Submit" />
+                <% } %>
+            </div>
+        </form>
+    </div>
+</div>
+    <%- include('../../fragments/footer.ejs') %>
+</body>
+</html>

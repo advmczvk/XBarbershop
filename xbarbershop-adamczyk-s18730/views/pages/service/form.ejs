@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client</title>
+    <title>Service</title>
     <link rel="icon" href="../../img/x-thumbnail.png">
     <link rel="stylesheet" href="../../styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <script type="application/javascript" src="../../JS/validateClientForm.js"></script>
+    <script type="application/javascript" src="../../JS/validateServiceForm.js"></script>
     <script type="application/javascript" src="../../JS/validationCommon.js"></script>
 </head>
 <body>
@@ -15,30 +15,30 @@
     <div class="main-container">
         <h1 class="title"><%= pageTitle %></h1>
         <form action="<%= formAction %>" method="post" novalidate onsubmit="return validateForm();">
-            <input type="hidden" name="_id" value="<%= r_client._id %>">
+            <input type="hidden" name="_id" value="<%= service._id %>">
             <div class="input">
-                <label for="name">Name:</label>
-                <input type="text" name="name" id="name" value="<%= r_client.name %>" required placeholder="Name Surname" 
+                <label for="name">Service:</label>
+                <input type="text" name="name" id="name" value="<%= service.name %>" required placeholder="Haircut" 
                 <%= (formMode == 'details') ? 'disabled' : '' %>/>
                 <span id="errorName" class="errors-text"></span>
             </div>
             <div class="input">
-                <label for="email">E-mail:</label>
-                <input type="email" name="email" id="email" value="<%= r_client.email %>" required placeholder="example@gmail.com"
+                <label for="time">Time:</label>
+                <input type="number" name="time" id="time" value="<%= service.time %>" required placeholder="minutes"
                 <%= (formMode == 'details') ? 'disabled' : '' %>/>
-                <span id="errorEmail" class="errors-text"></span>
+                <span id="errortime" class="errors-text"></span>
             </div>
             <div class="input">
-                <label for="phone">Phone number:</label>
-                <input type="tel" name="phone" id="phone" pattern="[0-9]{9}" value="<%= r_client.phone %>" required placeholder="123456789"
+                <label for="price">Price:</label>
+                <input type="number" name="price" id="price" value="<%= service.price %>" required placeholder="PLN"
                 <%= (formMode == 'details') ? 'disabled' : '' %>/>
-                <span id="errorPhone" class="errors-text"></span>
+                <span id="errorprice" class="errors-text"></span>
             </div>
             <div class="buttons">
                 <p id="errorsSummary" class="errors-text"></p>
                 <input type="button" class="secondary-button" value="Back" onclick="history.go(-1)" formnovalidate>
                 <% if (formMode == 'details') { %>
-                    <button class="main-button"><a href="../edit/<%= r_client._id %>">Edit</a></button>
+                    <button class="main-button"><a href="../edit/<%= service._id %>">Edit</a></button>
                 <% } else { %>
                     <input class="main-button" type="submit" value="Submit" />
                 <% } %>
@@ -47,21 +47,22 @@
     </div>
     <% if (formMode == 'details') { %>
     <div class="main-container">
-        <h1 class="title">Clients appointments</h1>
+        <h1 class="title">Service appointments</h1>
         <table class="form-table">
             <thead>
-                <th>Service</th>
-                <th>Price</th>
+                <th>Client</th>
+                <th>Phone</th>
                 <th>Date</th>
+                <th>Actions</th>
             </thead>
             <tbody>
-                <% for (let apps of r_client.appointments) { %>
+                <% for (let apps of service.appointments) { %>
                 <tr>
-                    <td><%= apps.service.name %></td>
-                    <td><%= apps.service.price %></td>
+                    <td><%= apps.client.name %></td>
+                    <td><%= apps.client.phone %></td>
                     <td><%= apps.date instanceof Date ? apps.date.toISOString().split('T')[0]:apps.date %></td>
                     <td>
-                        <button class="delete-button"><a href="./clients/delete/<%= r_client._id%>">Delete</a></button>
+                        <button class="delete-button"><a href="./services/delete/apps.service._id%>">Delete</a></button>
                     </td>
                 </tr>
                 <% } %>
