@@ -17,7 +17,8 @@ exports.showAddServiceForm = (req, res, next) => {
         formMode: 'createNew',
         btnLabel: 'Add',
         formAction: '/services/add',
-        navLocation: 'services'
+        navLocation: 'services',
+        validationErrors: ''
     });
 }
 
@@ -31,7 +32,8 @@ exports.showEditServiceForm = (req, res, next) => {
             formMode: 'edit',
             btnLabel: 'Edit',
             formAction: '/services/edit',
-            navLocation: 'services'
+            navLocation: 'services',
+            validationErrors: ''
         });
     })
 }
@@ -45,7 +47,8 @@ exports.showServiceDetails = (req, res, next) => {
             formMode: 'details',
             pageTitle: 'Service details',
             formAction: '',
-            navLocation: 'services'
+            navLocation: 'services',
+            validationErrors: ''
         }); 
     });
 }
@@ -55,6 +58,16 @@ exports.addService = (req, res, next) => {
     ServiceRepository.createService(serviceData)
         .then( result => {
             res.redirect('/services');
+        }).catch(err => {
+            res.render('pages/services/form', {
+                service: serviceData,
+                pageTitle: 'New service',
+                formMode: 'createNew',
+                btnLabel: 'Add',
+                formAction: '/services/add',
+                navLocation: 'services',
+                validationErrors: err.errors
+            })
         });
 };
 
@@ -64,8 +77,18 @@ exports.updateService = (req, res, next) => {
     ServiceRepository.updateService(serviceId, serviceData)
         .then( result => {
             res.redirect('/services');
+        }).catch(err => {
+            res.render('pages/services/form', {
+                service: serviceData,
+                pageTitle: 'Edit service',
+                formMode: 'edit',
+                btnLabel: 'Edit',
+                formAction: '/services/edit',
+                navLocation: 'services',
+                validationErrors: err.errors
+            })
         });
-};
+}
 
 exports.deleteService = (req, res, next) => {
     const serviceId = req.params.serviceID;

@@ -19,7 +19,8 @@ exports.showAddClientForm = (req, res, next) => {
         formMode: 'createNew',
         btnLabel: 'Add',
         formAction: '/clients/add',
-        navLocation: 'clients'
+        navLocation: 'clients',
+        validationErrors: ''
     });
 }
 
@@ -28,11 +29,12 @@ exports.showClientDetails = (req, res, next) => {
     ClientRepository.getClientById(clientId)
     .then(client => {
         res.render('pages/client/form', {
-            r_client: client,
+            client: client,
             formMode: 'details',
             pageTitle: 'Client details',
             formAction: '',
-            navLocation: 'clients'
+            navLocation: 'clients',
+            validationErrors: ''
         }); 
     })
 }
@@ -47,7 +49,8 @@ exports.showEditClientForm = (req, res, next) => {
             pageTitle: 'Edit client',
             btnLabel: 'Edit',
             formAction: '/clients/edit',
-            navLocation: 'clients'
+            navLocation: 'clients',
+            validationErrors: ''
         });
     })
 }
@@ -57,6 +60,16 @@ exports.addClient = (req, res, next) => {
     ClientRepository.createClient(clientData)
         .then( result => {
             res.redirect('/clients');
+        }).catch(err => {
+            res.render('pages/client/form'), {
+                r_client: {},
+                pageTitle: 'Add new client',
+                formMode: 'createNew',
+                btnLabel: 'Add',
+                formAction: '/clients/add',
+                navLocation: 'clients',
+                validationErrors: err.errors
+            }
         });
 };
 
@@ -65,7 +78,17 @@ exports.updateClient = (req, res, next) => {
     const clientData = { ...req.body };
     ClientRepository.updateClient(clientId, clientData)
         .then( result => {
-            res.redirect('/clients');
+            res.redirect('/clients')
+        }).catch(err => {
+            res.render('pages/client/form'), {
+                r_client: client,
+                formMode: 'edit',
+                pageTitle: 'Edit client',
+                btnLabel: 'Edit',
+                formAction: '/clients/edit',
+                navLocation: 'clients',
+                validationErrors: err.errors
+            }
         });
 };
 

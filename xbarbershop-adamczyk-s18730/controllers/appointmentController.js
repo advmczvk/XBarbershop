@@ -40,7 +40,8 @@ exports.showAddAppointmentForm = (req, res, next) => {
                 allServices: allServices,
                 pageTitle: 'Add appointment',
                 formAction: '/appointments/add',
-                navLocation: 'appointments'
+                navLocation: 'appointments',
+                validationErrors: ''
             });
         });
 }
@@ -103,6 +104,30 @@ exports.addAppointment = (req, res, next) => {
     AppointmentRepository.createAppointment(appointmentData)
         .then(result => {
             res.redirect('/appointments');
+        }).catch(err => {
+            let allClients, allServices, thisAppointment = {
+                date: appointmentData.date,
+                client: { _id: appointmentData.client_id },
+                service: { _id: appointmentData.service_id }
+            };
+            ClientRepository.getClients()
+                .then(clients => {
+                    allClients = clients;
+                    return ServiceRepository.getServices();
+                })
+                .then(services => {
+                    allServices = services;
+                    res.render('pages/appointment/form', {
+                        appointment: thisAppointment,
+                        allClients: allClients,
+                        allServices: allServices,
+                        pageTitle: 'Add appointment',
+                        formMode: 'createNew',
+                        formAction: 'appointments/add',
+                        navLocation: 'appointments',
+                        validationErrors: err.errors
+                    });
+                }); 
         });
 };
 
@@ -112,6 +137,30 @@ exports.updateAppointment = (req, res, next) => {
     AppointmentRepository.updateAppointment(appointmentId, appointmentData)
         .then(result => {
             res.redirect('/appointments');
+        }).catch(err => {
+            let allClients, allServices, thisAppointment = {
+                date: appointmentData.date,
+                client: { _id: appointmentData.client_id },
+                service: { _id: appointmentData.service_id }
+            };
+            ClientRepository.getClients()
+                .then(clients => {
+                    allClients = clients;
+                    return ServiceRepository.getServices();
+                })
+                .then(services => {
+                    allServices = services;
+                    res.render('pages/appointment/form', {
+                        appointment: thisAppointment,
+                        allClients: allClients,
+                        allServices: allServices,
+                        pageTitle: 'Edit appointment',
+                        formMode: 'edit',
+                        formAction: '/appointments/edit', 
+                        navLocation: 'appointments',
+                        validationErrors: err.errors
+                    });
+                });
         });
 };
 

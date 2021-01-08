@@ -18,7 +18,7 @@
             <input type="hidden" name="_id" value="<%= appointment._id %>">
             <div class="input">
                 <label for="date">Date:</label>
-                <input type="text" name="date" id="date" value="<%= appointment.date %>" required placeholder="YYYY-MM-DD" 
+                <input type="date" name="date" id="date" value="<%= appointment.date instanceof Date ? appointment.date.toISOString().split('T')[0]:appointment.date %>" required placeholder="YYYY-MM-DD" 
                 <%= (formMode == 'details') ? 'disabled' : '' %>/>
                 <span id="errorDate" class="errors-text"></span>
             </div>

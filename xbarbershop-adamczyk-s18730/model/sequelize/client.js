@@ -10,17 +10,50 @@ const Client = sequelize.define('Client', {
    },
    name: {
        type: Sequelize.STRING,
-       allowNull: false
+       allowNull: false,
+       validate: {
+        notEmpty: {
+            msg: "Field is required!"
+        },
+        len: {
+            args: [5,120],
+            msg: "Name must be in range 5-120"
+        },
+    }
    },
    email: {
        type: Sequelize.STRING,
        allowNull: false,
-       unique: true
+       unique: true,
+       validate: {
+        notEmpty: {
+            msg: "Field is required!"
+        },
+        len: {
+            args: [5,60],
+            msg: "E-mail must be in range 5-60"
+        },
+        isEmail: {
+            msg: 'E-mail incorrect'
+        }
+    }
    },
    phone: {
        type: Sequelize.STRING,
        allowNull: false,
-       unique: true
+       unique: true,
+       validate: {
+        notEmpty: {
+            msg: "Field is required!"
+        },
+        len: {
+            args: [9,9],
+            msg: "Phone number must be 9 digits"
+        },
+        isNumeric: {
+            msg: "Field must only contain digits"
+        }
+       }
    }
 });
 
