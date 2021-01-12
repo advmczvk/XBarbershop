@@ -20,19 +20,31 @@
                 <label for="name">Service:</label>
                 <input type="text" name="name" id="name" value="<%= service.name %>" required placeholder="Haircut" 
                 <%= (formMode == 'details') ? 'disabled' : '' %>/>
-                <span id="errorName" class="errors-text"></span>
+                <span id="errorName" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('name'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('name')).message %>
+                    <% } %>
+                </span>
             </div>
             <div class="input">
                 <label for="time">Time:</label>
                 <input type="number" name="time" id="time" value="<%= service.time %>" required placeholder="minutes"
                 <%= (formMode == 'details') ? 'disabled' : '' %>/>
-                <span id="errortime" class="errors-text"></span>
+                <span id="errorTime" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('time'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('time')).message %>
+                    <% } %>
+                </span>
             </div>
             <div class="input">
                 <label for="price">Price:</label>
                 <input type="number" name="price" id="price" value="<%= service.price %>" required placeholder="PLN"
                 <%= (formMode == 'details') ? 'disabled' : '' %>/>
-                <span id="errorprice" class="errors-text"></span>
+                <span id="errorPrice" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('price'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('price')).message %>
+                    <% } %>
+                </span>
             </div>
             <div class="buttons">
                 <p id="errorsSummary" class="errors-text"></p>

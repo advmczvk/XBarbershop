@@ -552,7 +552,6 @@ form select.error-input {
         width: 75px;
         height: 75px;
     }
-    /* Force table to not be like tables anymore */
     table,
     thead,
     tbody,
@@ -562,7 +561,6 @@ form select.error-input {
         display: block;
     }
 
-    /* Hide table headers (but not display: none;, for accessibility) */
     thead tr {
         position: absolute;
         top: -9999px;
@@ -574,7 +572,6 @@ form select.error-input {
     }
 
     td {
-        /* Behave  like a "row" */
         border: none;
         border-bottom: 1px solid #eee;
         position: relative;
@@ -582,9 +579,7 @@ form select.error-input {
     }
 
     td:before {
-        /* Now like a table header */
         position: absolute;
-        /* Top/left values mimic padding */
         top: 6px;
         left: 6px;
         width: 45%;
@@ -598,18 +593,4 @@ form select.error-input {
     tr:nth-of-type(odd) td {
         color: white;
     }
-
-    /*
-	Label the data
-	*/
-    /* td:nth-of-type(1):before { content: "Name"; }
-	td:nth-of-type(2):before { content: "Phone"; }
-	td:nth-of-type(3):before { content: "Service"; }
-	td:nth-of-type(4):before { content: ""; }
-	td:nth-of-type(5):before { content: "Wars of Trek?"; }
-	td:nth-of-type(6):before { content: "Secret Alias"; }
-	td:nth-of-type(7):before { content: "Date of Birth"; }
-	td:nth-of-type(8):before { content: "Dream Vacation City"; }
-	td:nth-of-type(9):before { content: "GPA"; }
-	td:nth-of-type(10):before { content: "Arbitrary Data"; } */
 }

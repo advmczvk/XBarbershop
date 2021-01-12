@@ -31,6 +31,10 @@ const Service = sequelize.define('Service', {
             },
             isNumeric: {
                 msg: "Must be a digit"
+            },
+            min: {
+                args: [0],
+                msg: "Price must be greater than 0"
             }
        }
    },
@@ -43,6 +47,10 @@ const Service = sequelize.define('Service', {
             },
             isNumeric: {
                 msg: "Must be a digit"
+            },
+            min: {
+                args: [0],
+                msg: "Time must be greater than 0"
             }
         }
    }

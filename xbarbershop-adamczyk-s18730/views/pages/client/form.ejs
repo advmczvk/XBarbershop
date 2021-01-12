@@ -20,19 +20,31 @@
                 <label for="name">Name:</label>
                 <input type="text" name="name" id="name" value="<%= r_client.name %>" required placeholder="Name Surname" 
                 <%= (formMode == 'details') ? 'disabled' : '' %>/>
-                <span id="errorName" class="errors-text"></span>
+                <span id="errorName" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('name'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('name')).message %>
+                    <% } %>
+                </span>
             </div>
             <div class="input">
                 <label for="email">E-mail:</label>
                 <input type="email" name="email" id="email" value="<%= r_client.email %>" required placeholder="example@gmail.com"
                 <%= (formMode == 'details') ? 'disabled' : '' %>/>
-                <span id="errorEmail" class="errors-text"></span>
+                <span id="errorEmail" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('email'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('email')).message %>
+                    <% } %>
+                </span>
             </div>
             <div class="input">
                 <label for="phone">Phone number:</label>
                 <input type="tel" name="phone" id="phone" pattern="[0-9]{9}" value="<%= r_client.phone %>" required placeholder="123456789"
                 <%= (formMode == 'details') ? 'disabled' : '' %>/>
-                <span id="errorPhone" class="errors-text"></span>
+                <span id="errorPhone" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('phone'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('phone')).message %>
+                    <% } %>
+                </span>
             </div>
             <div class="buttons">
                 <p id="errorsSummary" class="errors-text"></p>

@@ -20,7 +20,11 @@
                 <label for="date">Date:</label>
                 <input type="date" name="date" id="date" value="<%= appointment.date instanceof Date ? appointment.date.toISOString().split('T')[0]:appointment.date %>" required placeholder="YYYY-MM-DD" 
                 <%= (formMode == 'details') ? 'disabled' : '' %>/>
-                <span id="errorDate" class="errors-text"></span>
+                <span id="errorDate" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('date'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('date')).message %>
+                    <% } %>
+                </span>
             </div>
             <div class="select">
                 <label for="client_id">Client:</label>
@@ -33,7 +37,11 @@
                             ></option>
                         <% } %>
                 </select>
-                <span id="errorClient_id" class="errors-text"></span>
+                <span id="errorClient_id" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('client_id'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('client_id')).message %>
+                    <% } %>
+                </span>
             </div>
             <div class="input">
                 <label for="service_id">Service:</label>
@@ -46,11 +54,15 @@
                             ></option>
                         <% } %>
                 </select>
-                <span id="errorService_id" class="errors-text"></span>
+                <span id="errorService_id" class="errors-text">
+                    <% if (validationErrors.find(e => e.path.includes('service_id'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('service_id')).message %>
+                    <% } %>
+                </span>
             </div>
             <div class="buttons">
                 <p id="errorsSummary" class="errors-text"></p>
-                <input type="button" class="secondary-button" value="Back" onclick="history.go(-1)" formnovalidate>
+                <button class="main-button"><a href="/appointments">Back</a></button>
                 <% if (formMode == 'details') { %>
                     <button class="main-button"><a href=" ../edit/<%= appointment._id %>">Edit</a></button>
                 <% } else { %>

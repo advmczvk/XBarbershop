@@ -18,7 +18,7 @@ exports.showAddServiceForm = (req, res, next) => {
         btnLabel: 'Add',
         formAction: '/services/add',
         navLocation: 'services',
-        validationErrors: ''
+        validationErrors: []
     });
 }
 
@@ -33,7 +33,7 @@ exports.showEditServiceForm = (req, res, next) => {
             btnLabel: 'Edit',
             formAction: '/services/edit',
             navLocation: 'services',
-            validationErrors: ''
+            validationErrors: []
         });
     })
 }
@@ -48,7 +48,7 @@ exports.showServiceDetails = (req, res, next) => {
             pageTitle: 'Service details',
             formAction: '',
             navLocation: 'services',
-            validationErrors: ''
+            validationErrors: []
         }); 
     });
 }
@@ -59,11 +59,10 @@ exports.addService = (req, res, next) => {
         .then( result => {
             res.redirect('/services');
         }).catch(err => {
-            res.render('pages/services/form', {
+            res.render('pages/service/form', {
                 service: serviceData,
                 pageTitle: 'New service',
                 formMode: 'createNew',
-                btnLabel: 'Add',
                 formAction: '/services/add',
                 navLocation: 'services',
                 validationErrors: err.errors
@@ -78,7 +77,7 @@ exports.updateService = (req, res, next) => {
         .then( result => {
             res.redirect('/services');
         }).catch(err => {
-            res.render('pages/services/form', {
+            res.render('pages/service/form', {
                 service: serviceData,
                 pageTitle: 'Edit service',
                 formMode: 'edit',

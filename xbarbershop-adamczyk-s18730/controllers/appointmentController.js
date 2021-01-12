@@ -41,7 +41,7 @@ exports.showAddAppointmentForm = (req, res, next) => {
                 pageTitle: 'Add appointment',
                 formAction: '/appointments/add',
                 navLocation: 'appointments',
-                validationErrors: ''
+                validationErrors: []
             });
         });
 }
@@ -67,7 +67,7 @@ exports.showEditAppointmentForm = (req, res, next) => {
                 pageTitle: 'Edit appointment',
                 formAction: '/appointments/edit',
                 navLocation: 'appointments',
-                validationErrors: ''
+                validationErrors: []
             });
         });
 }
@@ -93,7 +93,7 @@ exports.showAppointmentDetails = (req, res, next) => {
                 pageTitle: 'Appointment details',
                 formAction: '',
                 navLocation: 'appointments',
-                validationErrors: ''
+                validationErrors: []
             });
 
         });
@@ -123,7 +123,7 @@ exports.addAppointment = (req, res, next) => {
                         allServices: allServices,
                         pageTitle: 'Add appointment',
                         formMode: 'createNew',
-                        formAction: 'appointments/add',
+                        formAction: '/appointments/add',
                         navLocation: 'appointments',
                         validationErrors: err.errors
                     });

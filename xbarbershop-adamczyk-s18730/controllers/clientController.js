@@ -1,3 +1,4 @@
+const Client = require('../model/sequelize/client');
 const ClientRepository = require('../repository/sequelize/ClientRepository');
 
 exports.showClients = (req, res, next) => {
@@ -20,7 +21,7 @@ exports.showAddClientForm = (req, res, next) => {
         btnLabel: 'Add',
         formAction: '/clients/add',
         navLocation: 'clients',
-        validationErrors: ''
+        validationErrors: []
     });
 }
 
@@ -29,12 +30,12 @@ exports.showClientDetails = (req, res, next) => {
     ClientRepository.getClientById(clientId)
     .then(client => {
         res.render('pages/client/form', {
-            client: client,
+            r_client: client,
             formMode: 'details',
             pageTitle: 'Client details',
             formAction: '',
             navLocation: 'clients',
-            validationErrors: ''
+            validationErrors: []
         }); 
     })
 }
@@ -50,7 +51,7 @@ exports.showEditClientForm = (req, res, next) => {
             btnLabel: 'Edit',
             formAction: '/clients/edit',
             navLocation: 'clients',
-            validationErrors: ''
+            validationErrors: []
         });
     })
 }
@@ -61,36 +62,34 @@ exports.addClient = (req, res, next) => {
         .then( result => {
             res.redirect('/clients');
         }).catch(err => {
-            res.render('pages/client/form'), {
-                r_client: {},
+            res.render('pages/client/form', {
+                r_client: clientData,
                 pageTitle: 'Add new client',
                 formMode: 'createNew',
-                btnLabel: 'Add',
                 formAction: '/clients/add',
                 navLocation: 'clients',
                 validationErrors: err.errors
-            }
+            })
         });
-};
+}
 
 exports.updateClient = (req, res, next) => {
     const clientId = req.body._id;
     const clientData = { ...req.body };
     ClientRepository.updateClient(clientId, clientData)
         .then( result => {
-            res.redirect('/clients')
+            res.redirect('/clients');
         }).catch(err => {
-            res.render('pages/client/form'), {
-                r_client: client,
-                formMode: 'edit',
+            res.render('pages/client/form', {
+                r_client: clientData,
                 pageTitle: 'Edit client',
-                btnLabel: 'Edit',
+                formMode: 'edit',
                 formAction: '/clients/edit',
                 navLocation: 'clients',
                 validationErrors: err.errors
-            }
+            })
         });
-};
+}
 
 exports.deleteClient = (req, res, next) => {
     const clientId = req.params.clientID;
@@ -98,4 +97,4 @@ exports.deleteClient = (req, res, next) => {
         .then( () => {
             res.redirect('/clients');
         });
-};
+}
