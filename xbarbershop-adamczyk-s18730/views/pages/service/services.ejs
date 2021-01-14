@@ -29,16 +29,16 @@
                         <td><%= ser.time %> min</td>
                         <td><%= ser.price %> PLN</td>
                         <td>
-                            <button class="details-button"><a href="./services/details/<%= ser._id%>">Details</a></button>
-                            <button class="edit-button"><a href="./services/edit/<%= ser._id%>">Edit</a></button>
-                            <button class="delete-button"><a href="./services/delete/<%= ser._id%>">Delete</a></button>
+                            <a class="details-button" href="./services/details/<%= ser._id%>">Details</a>
+                            <a class="edit-button" href="./services/edit/<%= ser._id%>">Edit</a>
+                            <a class="delete-button" href="./services/delete/<%= ser._id%>">Delete</a>
                         </td>
                     </tr>
                     <% } %>
                 </tbody>
             </table>
-            <button class="main-button"><a href="./appointments/add">Book now!</a></button>
-            <button class="details-button"><a href="./services/add">Add service</a></button>
+            <a class="main-button" href="./appointments/add">Book now!</a>
+            <a class="details-button" href="./services/add">Add service</a>
         </div>
     </main>
     <div class="wave-footer">

@@ -48,9 +48,9 @@
             </div>
             <div class="buttons">
                 <p id="errorsSummary" class="errors-text"></p>
-                <input type="button" class="secondary-button" value="Back" onclick="history.go(-1)" formnovalidate>
+                <a class="secondary-button" href="/services">Back</a>
                 <% if (formMode == 'details') { %>
-                    <button class="main-button"><a href="../edit/<%= service._id %>">Edit</a></button>
+                    <a class="main-button" href="../edit/<%= service._id %>">Edit</a>
                 <% } else { %>
                     <input class="main-button" type="submit" value="Submit" />
                 <% } %>
@@ -74,7 +74,7 @@
                     <td><%= apps.client.phone %></td>
                     <td><%= apps.date instanceof Date ? apps.date.toISOString().split('T')[0]:apps.date %></td>
                     <td>
-                        <button class="delete-button"><a href="./services/delete/apps.service._id%>">Delete</a></button>
+                        <a class="delete-button" href="./services/delete/apps.service._id%>">Delete</a>
                     </td>
                 </tr>
                 <% } %>
@@ -84,5 +84,6 @@
     <% } %>
 </div>
     <%- include('../../fragments/footer.ejs') %>
+    <script src="../../JS/script.js"></script>
 </body>
 </html>

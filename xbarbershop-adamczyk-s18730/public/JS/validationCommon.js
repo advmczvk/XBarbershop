@@ -56,3 +56,6 @@ function checkDigit(value) {
 function checkDate(value, today) {
     return value >= today;
 }
+function checkRange(value) {
+    return value < 2147483647;
+}

@@ -28,15 +28,15 @@
                             <td><%= client.email %></td>
                             <td><%= client.phone %></td>
                             <td>
-                                <button class="details-button"><a href="./clients/details/<%= client._id%>">Details</a></button>
-                                <button class="edit-button"><a href="./clients/edit/<%= client._id%>">Edit</a></button>
-                                <button class="delete-button"><a href="./clients/delete/<%= client._id%>">Delete</a></button>
+                                <a class="details-button" href="./clients/details/<%= client._id%>">Details</a>
+                                <a class="edit-button" href="./clients/edit/<%= client._id%>">Edit</a>
+                                <a class="delete-button" href="./clients/delete/<%= client._id%>">Delete</a>
                             </td>
                     </tr>
                     <% } %>
                 </tbody>
             </table>
-            <button class="main-button"><a href="./clients/add">Add new client</a></button>
+            <a class="main-button" href="./clients/add">Add new client</a>
         </div>
     </main>
     <div class="wave-footer">

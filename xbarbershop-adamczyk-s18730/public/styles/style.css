@@ -252,19 +252,17 @@ table th {
     color: white;
     font-weight: 600;
 }
-.details-button a,
-.edit-button a,
-.delete-button a {
-    text-decoration: none;
-    color: white;
-}
 .details-button,
 .edit-button,
 .delete-button {
+    display: inline-block;
     border: none;
     text-decoration: none;
     border-radius: 15px;
     padding: 0.3rem 1rem;
+    margin: .2rem;
+    color: white;
+    font-size: 0.8rem;
 }
 
 .details-button {
@@ -304,7 +302,7 @@ table th {
     text-align: justify;
     width: 50%;
     height: 100%;
-    margin: 2rem auto;
+    margin: 2rem auto 0 auto;
 }
 
 .booking h2 {
@@ -313,16 +311,18 @@ table th {
     margin-bottom: 1rem;
 }
 
-.main-button {
+.main-button,
+.secondary-button {
+    display: inline-block;
     border: none;
     text-decoration: none;
     width: auto;
-    margin: 1.5rem auto;
+    margin: 1rem auto;
     padding: 1rem;
     border-radius: 15px;
-    background-color: var(--primary-color);
     color: white;
     transition: background-color 0.2s ease-in-out;
+    font-size: .8rem;
 }
 
 .main-button:hover {
@@ -330,20 +330,12 @@ table th {
     transition: background-color 0.2s ease-in-out;
 }
 
-.main-button a {
-    color: white;
+.main-button {
+    background-color: var(--primary-color);
 }
 
 .secondary-button {
-    border: none;
-    text-decoration: none;
-    width: auto;
-    margin: 1.5rem auto;
-    padding: 1rem;
-    border-radius: 15px;
     background-color: var(--secondary-color-light);
-    color: white;
-    transition: background-color 0.2s ease-in-out;
 }
 
 .secondary-button:hover {
@@ -380,9 +372,11 @@ table th {
     margin: 0.5rem 0.5rem 0.2rem 0;
 }
 
-.input input,
-select {
-    width: 60%;
+.input input{
+    width: 40%;
+}
+.input select {
+    width: 40%;
 }
 
 .main-container .logo {

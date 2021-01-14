@@ -22,22 +22,6 @@ const Service = sequelize.define('Service', {
             }
         }
    },
-   price: {
-       type: Sequelize.DECIMAL(6, 2),
-       allowNull: false,
-       validate: {
-            notEmpty: {
-                msg: "Field is required!"
-            },
-            isNumeric: {
-                msg: "Must be a digit"
-            },
-            min: {
-                args: [0],
-                msg: "Price must be greater than 0"
-            }
-       }
-   },
    time: {
        type: Sequelize.INTEGER,
        allowNull: false,
@@ -51,9 +35,29 @@ const Service = sequelize.define('Service', {
             min: {
                 args: [0],
                 msg: "Time must be greater than 0"
+            },
+            max: {
+                args: [2147483647],
+                msg: "Value out of range"
             }
         }
-   }
+   },
+   price: {
+        type: Sequelize.DECIMAL(6, 2),
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Field is required!"
+            },
+            isNumeric: {
+                msg: "Must be a digit"
+            },
+            min: {
+                args: [0],
+                msg: "Price must be greater than 0"
+            }
+        }
+    }
 });
 
 module.exports = Service;

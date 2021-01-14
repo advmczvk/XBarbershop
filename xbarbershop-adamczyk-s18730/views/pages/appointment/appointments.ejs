@@ -29,9 +29,9 @@
                         <td><%= app.service.name %></td>
                         <td><%= app.date instanceof Date ? app.date.toISOString().split('T')[0]:app.date %></td>
                         <td>
-                            <button class="details-button"><a href="./appointments/details/<%= app._id%>">Details</a></button>
-                            <button class="edit-button"><a href="./appointments/edit/<%= app._id%>">Edit</a></button>
-                            <button class="delete-button"><a href="./appointments/delete/<%= app._id%>">Delete</a></button>
+                            <a class="details-button" href="./appointments/details/<%= app._id%>">Details</a>
+                            <a class="edit-button" href="./appointments/edit/<%= app._id%>">Edit</a>
+                            <a class="delete-button" href="./appointments/delete/<%= app._id%>">Delete</a>
                         </td>
                     </tr>
                     <% } %>
@@ -41,7 +41,7 @@
         <div class="booking">
             <h2>Book new appointment</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quia officiis vitae voluptatum maiores atque dolorum eveniet, quod laboriosam animi, molestiae ullam eaque maxime tempora nobis! Recusandae pariatur eum molestiae.</p>
-            <button class="main-button"><a href="./appointments/add">Book now!</a></button>
+            <a class="main-button" href="./appointments/add">Book now!</a>
         </div>
     </main>
     <div class="wave-footer">

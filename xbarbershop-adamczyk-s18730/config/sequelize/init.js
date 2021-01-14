@@ -57,9 +57,9 @@ module.exports = () => {
     .then( apps => {
         if( !apps || apps.length == 0 ) {
             return Appointment.bulkCreate([
-                {date: '2020-01-08', client_id: allClients[0]._id, service_id: allServices[0]._id},
-                {date: '2020-01-08', client_id: allClients[1]._id, service_id: allServices[2]._id},
-                {date: '2020-01-08', client_id: allClients[2]._id, service_id: allServices[1]._id}                
+                {date: '2021-01-22', client_id: allClients[0]._id, service_id: allServices[0]._id},
+                {date: '2021-02-08', client_id: allClients[1]._id, service_id: allServices[2]._id},
+                {date: '2021-02-9', client_id: allClients[2]._id, service_id: allServices[1]._id}                
             ]);
         } else {
             return apps;
